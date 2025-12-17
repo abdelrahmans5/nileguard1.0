@@ -1,0 +1,246 @@
+/* ========================================
+   AWARENESS PAGE STYLES
+   ======================================== */
+
+.awareness-section {
+    background: linear-gradient(135deg, #f5f7fa, #fff);
+    padding: 3rem 0;
+}
+
+/* Tips Section */
+.tips-section {
+    margin-bottom: 3rem;
+}
+
+.tips-section h3 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.tip-1 {
+    border-top-color: #FF6B6B;
+}
+
+.tip-2 {
+    border-top-color: #4ECDC4;
+}
+
+.tip-3 {
+    border-top-color: #95E1D3;
+}
+
+.tip-4 {
+    border-top-color: #FFD93D;
+}
+
+.tip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tip-card h4 {
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.tip-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Quiz Section */
+.quiz-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.quiz-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.quiz-progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-green), var(--warning-yellow));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.quiz-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.quiz-card h4 {
+    margin-bottom: 1rem;
+}
+
+.quiz-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-option {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-option:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-option.correct {
+    background: var(--success-green);
+    border-color: var(--success-green);
+}
+
+.btn-option.incorrect {
+    background: var(--danger-red);
+    border-color: var(--danger-red);
+}
+
+.quiz-controls {
+    text-align: center;
+}
+
+/* Water Cycle Animation */
+.animation-section {
+    background: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.water-cycle-svg {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.05), rgba(0, 191, 255, 0.05));
+    border-radius: 12px;
+}
+
+.water-cycle-svg svg {
+    width: 100%;
+    height: auto;
+}
+
+.evaporation-arrows {
+    animation: evaporate 4s infinite ease-in-out;
+}
+
+.clouds {
+    animation: cloudDrift 6s infinite ease-in-out;
+}
+
+.water-drop {
+    animation: bubble 2s infinite ease-in-out;
+}
+
+@keyframes evaporate {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes cloudDrift {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+@keyframes bubble {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quiz-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}

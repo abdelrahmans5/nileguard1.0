@@ -1,0 +1,51 @@
+[
+    {
+        "year": 2019,
+        "indicator": "Air Quality Index",
+        "country": "Egypt",
+        "value": 125,
+        "unit": "µg/m³"
+    },
+    {
+        "year": 2020,
+        "indicator": "Air Quality Index",
+        "country": "Egypt",
+        "value": 118,
+        "unit": "µg/m³"
+    },
+    {
+        "year": 2021,
+        "indicator": "Air Quality Index",
+        "country": "Egypt",
+        "value": 115,
+        "unit": "µg/m³"
+    },
+    {
+        "year": 2022,
+        "indicator": "Water Quality Index",
+        "country": "Egypt",
+        "value": 65,
+        "unit": "Score"
+    },
+    {
+        "year": 2023,
+        "indicator": "Water Quality Index",
+        "country": "Egypt",
+        "value": 68,
+        "unit": "Score"
+    },
+    {
+        "year": 2019,
+        "indicator": "Forest Coverage",
+        "country": "Egypt",
+        "value": 0.1,
+        "unit": "%"
+    },
+    {
+        "year": 2023,
+        "indicator": "Forest Coverage",
+        "country": "Egypt",
+        "value": 0.15,
+        "unit": "%"
+    }
+]

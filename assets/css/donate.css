@@ -1,0 +1,404 @@
+/* ========================================
+   DONATION PAGE STYLES
+   ======================================== */
+
+/* ========================================
+   DONATION MAIN LAYOUT
+   ======================================== */
+
+.donate-main {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f4fa 100%);
+    min-height: calc(100vh - 300px);
+}
+
+.donate-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* ========================================
+   IMPACT SECTION
+   ======================================== */
+
+.donate-impact h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.impact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.impact-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue);
+}
+
+.impact-number {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.impact-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ========================================
+   DONATION STORY
+   ======================================== */
+
+.donation-story {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.donation-story h3 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.donation-story p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.donation-story ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.donation-story li {
+    color: var(--text-light);
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.donation-story li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   DONATION FORM SECTION
+   ======================================== */
+
+.donate-form-section {
+    position: sticky;
+    top: 100px;
+}
+
+.donation-form {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.donation-form h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-check-input {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* ========================================
+   AMOUNT BUTTONS
+   ======================================== */
+
+.amount-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.amount-btn {
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.amount-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.amount-btn.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    color: #fff;
+    border-color: transparent;
+}
+
+/* ========================================
+   CUSTOM AMOUNT INPUT
+   ======================================== */
+
+.custom-amount {
+    margin-top: 1rem;
+}
+
+.custom-amount label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-text {
+    background: #f5f7fa;
+    border: 2px solid var(--border-color);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    padding: 0.75rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.input-group .form-control {
+    border-radius: 0 8px 8px 0;
+}
+
+/* ========================================
+   DONATION TYPE OPTIONS
+   ======================================== */
+
+.donation-type-options,
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* ========================================
+   DONATION SUMMARY
+   ======================================== */
+
+.donation-summary {
+    background: #f5f7fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.summary-row.total {
+    border-top: 2px solid var(--border-color);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+#totalAmount {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
+#donateBtn {
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+#donateBtn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
+    background: linear-gradient(135deg, #1e7edb, #00a8e8);
+}
+
+#donateBtn:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+#donateBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#donateBtn:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+/* ========================================
+   TRUST BADGES
+   ======================================== */
+
+.trust-badges {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.trust-badges p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .donate-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .donate-form-section {
+        position: static;
+    }
+
+    .impact-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .amount-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .donation-form {
+        padding: 1.5rem;
+    }
+
+    .donate-impact h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .donate-main {
+        padding: 2rem 0;
+    }
+
+    .donation-form {
+        padding: 1rem;
+    }
+
+    .amount-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-impact h2 {
+        font-size: 1.5rem;
+    }
+
+    .impact-number {
+        font-size: 1.5rem;
+    }
+}
