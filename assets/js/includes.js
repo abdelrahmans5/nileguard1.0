@@ -14,8 +14,9 @@ function loadFooter() {
                 <!-- Column 1: Brand & Social -->
                 <div class="footer-section footer-brand">
                     <div class="footer-logo">
-                        <span class="logo-icon">💧</span>
-                        <span class="logo-text">NileGuard</span>
+                        <img src="assets/img/bluefuture-logo.png" alt="Blue Future Logo" class="logo-icon"
+                            style="height: 40px; margin-right: 10px;">
+                        <span class="logo-text">Blue Future</span>
                     </div>
                     <p class="footer-description">Protecting the Nile River and raising awareness about global water scarcity.</p>
                     <div class="footer-social">
