@@ -7,6 +7,25 @@ let cart = [];
 let productsData = [];
 
 /**
+ * Initialize store page functionality
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    // Scroll to products button
+    const scrollButtons = document.querySelectorAll('.scroll-to-products');
+    scrollButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Load and display products
+    loadProductsData();
+});
+
+/**
  * Load product data from JSON (fallback to dummy data)
  */
 async function loadProductsData() {

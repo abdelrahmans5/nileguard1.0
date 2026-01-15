@@ -1,5 +1,6 @@
 /* ========================================
    INDEX/HOME PAGE STYLES
+   استخدام النظام الموحد من common.css
    ======================================== */
 
 /* ========================================
@@ -14,7 +15,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: var(--gradient-dark);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -386,10 +387,35 @@
    ======================================== */
 
 .cta-section {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: linear-gradient(135deg, #0066cc 0%, #004ba8 50%, #00d4ff 100%);
+    position: relative;
     color: #fff;
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.03));
+    pointer-events: none;
 }
 
 /* ========================================
@@ -402,21 +428,43 @@
     text-align: center;
 }
 
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
+.marquee-wrapper {
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.04), rgba(30, 144, 255, 0.04));
+    border-radius: 12px;
+    padding: 1.5rem 0;
     margin-top: 2rem;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    width: max-content;
 }
 
 .partner-card {
-    padding: 1.4rem;
+    flex: 0 0 auto;
+    min-width: 180px;
+    padding: 1.4rem 1.8rem;
     border: 1px solid #e6eef5;
     border-radius: 12px;
     background: linear-gradient(135deg, rgba(0, 191, 255, 0.08), rgba(30, 144, 255, 0.08));
     color: var(--text-dark);
     font-weight: 600;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.15), rgba(30, 144, 255, 0.15));
 }
 
 /* ========================================

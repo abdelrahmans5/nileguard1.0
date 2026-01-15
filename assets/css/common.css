@@ -1,58 +1,128 @@
 /* ========================================
    COMMON STYLES - Used across all pages
+   نمط مشترك - مستخدم في جميع الصفحات
    ======================================== */
 
 :root {
-    /* Primary Colors */
-    --primary-blue: #1E90FF;
-    --primary-aqua: #00BFFF;
-    --primary-dark-blue: #0056B3;
+    /* ========================================
+       نظام الألوان الموحد - Unified Color Palette
+       ======================================== */
 
-    /* Secondary Colors */
-    --success-green: #00AA00;
-    --warning-yellow: #FFDD00;
-    --danger-red: #DD0000;
-    --danger-brown: #AA5500;
+    /* الألوان الأساسية - Primary Colors */
+    --color-primary: #0066cc;
+    /* الأزرق الأساسي */
+    --color-primary-light: #3399ff;
+    /* أزرق فاتح */
+    --color-primary-dark: #004ba8;
+    /* أزرق غامق */
+    --color-primary-gradient-start: #0066cc;
+    --color-primary-gradient-end: #004ba8;
 
-    /* Neutral Colors */
-    --dark-bg: #0a0e27;
-    --light-bg: #f5f7fa;
-    --text-dark: #1a1a1a;
-    --text-light: #666;
-    --border-color: #e0e0e0;
+    /* الألوان الثانوية - Secondary Colors */
+    --color-accent: #00d4ff;
+    /* التركواز/السماوي */
+    --color-accent-light: #66e6ff;
+    /* تركواز فاتح */
+    --color-accent-dark: #0099cc;
+    /* تركواز غامق */
 
-    /* Typography */
+    /* ألوان الحالة - Status Colors */
+    --color-success: #00aa00;
+    /* أخضر النجاح */
+    --color-warning: #ffdd00;
+    /* أصفر التحذير */
+    --color-danger: #dd0000;
+    /* أحمر الخطر */
+    --color-info: #0066cc;
+    /* أزرق المعلومات */
+
+    /* الألوان المحايدة - Neutral Colors */
+    --color-dark-bg: #0a0e27;
+    /* خلفية غامقة */
+    --color-light-bg: #f5f7fa;
+    /* خلفية فاتحة */
+    --color-white: #ffffff;
+    /* أبيض */
+    --color-text-dark: #1a1a1a;
+    /* نص غامق */
+    --color-text-light: #666666;
+    /* نص فاتح */
+    --color-border: #e0e0e0;
+    /* حد فاصل */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    /* ظل */
+
+    /* ألوان إضافية للتأكيد - Additional Accent Colors */
+    --color-accent-red: #FF6B6B;
+    --color-accent-teal: #4ECDC4;
+    --color-accent-mint: #95E1D3;
+    --color-accent-yellow: #FFD93D;
+
+    /* ========================================
+       الخطوط - Typography
+       ======================================== */
     --font-primary: 'Poppins', sans-serif;
     --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+    --font-size-3xl: 48px;
+
     --font-weight-light: 300;
     --font-weight-normal: 400;
+    --font-weight-medium: 500;
     --font-weight-bold: 600;
     --font-weight-extra-bold: 700;
 
-    /* Spacing */
+    /* ========================================
+       المسافات - Spacing Scale
+       ======================================== */
     --spacing-xs: 0.5rem;
+    /* 8px */
     --spacing-sm: 1rem;
+    /* 16px */
     --spacing-md: 1.5rem;
+    /* 24px */
     --spacing-lg: 2rem;
+    /* 32px */
     --spacing-xl: 3rem;
+    /* 48px */
     --spacing-xxl: 4rem;
+    /* 64px */
 
-    /* Border Radius */
+    /* ========================================
+       الحدود المستديرة - Border Radius
+       ======================================== */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-xl: 16px;
+    --radius-full: 9999px;
 
-    /* Shadows */
+    /* ========================================
+       الظلال - Shadows
+       ======================================== */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.25);
+    --shadow-2xl: 0 20px 40px rgba(0, 0, 0, 0.3);
 
-    /* Transitions */
+    /* ========================================
+       الانتقالات والحركات - Transitions
+       ======================================== */
     --transition-fast: 0.15s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
+
+    /* ========================================
+       التدرجات - Gradients
+       ======================================== */
+    --gradient-primary: linear-gradient(135deg, #0066cc 0%, #004ba8 100%);
+    --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    --gradient-light: linear-gradient(135deg, #e8f0fa 0%, #f5f7fa 100%);
+    --gradient-dark: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
 /* ========================================
@@ -73,9 +143,16 @@ body {
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     line-height: 1.6;
-    color: var(--text-dark);
+    color: var(--color-text-dark);
     background-color: #fff;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 /* ========================================
@@ -111,18 +188,18 @@ h4 {
 
 p {
     margin-bottom: var(--spacing-md);
-    color: var(--text-light);
+    color: var(--color-text-light);
     line-height: 1.8;
 }
 
 a {
-    color: var(--primary-blue);
+    color: var(--color-primary);
     text-decoration: none;
     transition: color var(--transition-normal);
 }
 
 a:hover {
-    color: var(--primary-dark-blue);
+    color: var(--color-primary-dark);
 }
 
 /* ========================================
@@ -165,7 +242,7 @@ a:hover {
 }
 
 .navbar.scrolled .navbar-brand {
-    color: var(--text-dark) !important;
+    color: var(--color-text-dark) !important;
 }
 
 .brand-icon {
@@ -174,7 +251,7 @@ a:hover {
 }
 
 .brand-text {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -182,7 +259,7 @@ a:hover {
 
 .navbar.scrolled .brand-text {
     -webkit-text-fill-color: unset;
-    color: var(--primary-blue);
+    color: var(--color-primary);
 }
 
 .navbar-brand:hover {
@@ -195,7 +272,7 @@ a:hover {
 }
 
 .navbar.scrolled .navbar-toggler {
-    border-color: var(--text-dark) !important;
+    border-color: var(--color-text-dark) !important;
 }
 
 .navbar-toggler-icon {
@@ -233,12 +310,12 @@ a:hover {
 }
 
 .navbar.scrolled .navbar-nav .nav-link {
-    color: var(--text-dark) !important;
+    color: var(--color-text-dark) !important;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--primary-blue) !important;
+    color: var(--color-primary) !important;
 }
 
 .navbar-nav .nav-link.active::after {
@@ -249,31 +326,29 @@ a:hover {
     transform: translateX(-50%);
     width: 20px;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     border-radius: 1px;
 }
 
-/* ========================================
-   DONATE BUTTON IN NAVBAR
-   ======================================== */
+/* DONATE BUTTON IN NAVBAR */
 
 .nav-donate-btn {
     margin-left: 1rem;
 }
 
 .nav-donate-btn .nav-link {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     color: #fff !important;
     padding: 0.6rem 1.5rem !important;
     border-radius: 25px;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
     transition: all 0.3s ease;
 }
 
 .nav-donate-btn .nav-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(30, 144, 255, 0.35);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.35);
     color: #fff !important;
 }
 
@@ -285,16 +360,14 @@ a:hover {
     color: #fff !important;
 }
 
-/* ========================================
-   CART BUTTON IN NAVBAR (SHOP PAGE)
-   ======================================== */
+/* CART BUTTON IN NAVBAR */
 
 .nav-cart-btn {
     margin-left: 1rem;
 }
 
 .nav-cart-btn .nav-link {
-    background: linear-gradient(135deg, var(--success-green), #00CC00);
+    background: linear-gradient(135deg, var(--color-success), #00CC00);
     color: #fff !important;
     padding: 0.6rem 1.5rem !important;
     border-radius: 25px;
@@ -327,7 +400,7 @@ a:hover {
 
 .cart-badge {
     background: #fff;
-    color: var(--success-green);
+    color: var(--color-success);
     border-radius: 50%;
     padding: 0.1rem 0.4rem;
     font-size: 0.75rem;
@@ -378,12 +451,12 @@ a:hover {
     }
 
     .navbar-nav .nav-link:hover {
-        background: rgba(30, 144, 255, 0.15);
+        background: rgba(0, 102, 204, 0.15);
         padding-left: 1.25rem;
     }
 
     .navbar.scrolled .navbar-nav .nav-link:hover {
-        background: rgba(30, 144, 255, 0.1);
+        background: rgba(0, 102, 204, 0.1);
     }
 
     .nav-donate-btn,
@@ -413,24 +486,24 @@ a:hover {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     color: #fff;
     box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-blue));
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
 
 .btn-success {
-    background: linear-gradient(135deg, var(--success-green), #00cc00);
+    background: linear-gradient(135deg, var(--color-success), #00cc00);
     color: #fff;
 }
 
 .btn-success:hover {
-    background: linear-gradient(135deg, #009900, var(--success-green));
+    background: linear-gradient(135deg, #009900, var(--color-success));
     transform: translateY(-2px);
 }
 
@@ -445,12 +518,12 @@ a:hover {
 }
 
 .btn-outline-primary {
-    border: 2px solid var(--primary-blue);
-    color: var(--primary-blue);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
 }
 
 .btn-outline-primary:hover {
-    background: var(--primary-blue);
+    background: var(--color-primary);
     color: #fff;
 }
 
@@ -466,7 +539,7 @@ section {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -475,12 +548,12 @@ section {
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-lg);
 }
 
 .page-header {
-    background: linear-gradient(135deg, var(--dark-bg), #1a1f3a);
+    background: linear-gradient(135deg, var(--color-dark-bg), #1a1f3a);
     color: #fff;
     padding: 6rem 0 3rem;
     text-align: center;
@@ -522,7 +595,7 @@ section {
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-aqua));
+    background: var(--gradient-primary);
     border-radius: 50%;
     margin-bottom: var(--spacing-md);
 }
@@ -539,50 +612,260 @@ section {
    ======================================== */
 
 .footer {
-    background: linear-gradient(135deg, var(--dark-bg), #1a1f3a);
+    background: var(--gradient-primary);
     color: #fff;
-    padding: var(--spacing-xxl) 0 var(--spacing-md);
-    margin-top: var(--spacing-xxl);
+    margin-top: auto;
+    border-top: 4px solid var(--color-primary-dark);
+    position: relative;
+    width: 100%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
 }
 
-.footer-content {
+.footer-top {
+    padding: var(--spacing-xxl) 0 0;
+}
+
+.footer-main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
 }
 
-.footer-section h5 {
-    color: var(--primary-aqua);
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    margin-bottom: 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-extra-bold);
+    color: #fff;
 }
 
-.footer-section p {
-    color: rgba(255, 255, 255, 0.8);
+.logo-icon {
+    font-size: 2rem;
 }
 
-.footer-section ul {
+.logo-text {
+    color: #fff;
+    font-weight: 700;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.5;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: auto;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all var(--transition-normal);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.1rem;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.footer-title {
+    color: #e0f0ff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.footer-links {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-.footer-section ul li {
-    margin-bottom: 0.5rem;
+.footer-links li a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    transition: all var(--transition-normal);
+    position: relative;
 }
 
-.footer-section ul li a {
-    color: rgba(255, 255, 255, 0.8);
+.footer-links li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.footer-contact {
+    grid-column: 4;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact-item a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
     transition: color var(--transition-normal);
 }
 
-.footer-section ul li a:hover {
-    color: var(--primary-aqua);
+.contact-item a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .footer-bottom {
+    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--spacing-lg) 0;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--spacing-xl);
+    }
+
+    .footer-contact {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .footer-brand {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+
+    .footer-social {
+        margin-top: var(--spacing-lg);
+    }
+}
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+
+.stats-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(180deg, rgba(0, 102, 204, 0.08) 0%, rgba(0, 212, 255, 0.04) 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: stretch;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--spacing-lg);
-    color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 12px rgba(0, 102, 204, 0.1);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-extra-bold);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    font-weight: 500;
 }
 
 /* ========================================
@@ -663,14 +946,14 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--light-bg);
+    background: var(--color-light-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-blue);
+    background: var(--color-primary);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark-blue);
+    background: var(--color-primary-dark);
 }

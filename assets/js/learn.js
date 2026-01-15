@@ -8,6 +8,27 @@ let score = 0;
 let globalUsageChart = null;
 let stressChart = null;
 
+// Hook section scroll functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollButtons = document.querySelectorAll('.scroll-to-section');
+    scrollButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Initialize page elements
+    initializeGlobalUsageChart();
+    initializeStressChart();
+    setupQuiz();
+    setupMap();
+    animateStats();
+});
+
 const quizData = [
     {
         question: 'What percentage of Earth\'s water is freshwater?',

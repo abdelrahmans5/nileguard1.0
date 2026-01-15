@@ -123,7 +123,7 @@ function initializeSmoothScroll() {
 }
 
 /**
- * Counter animation with CountUp.js
+ * Counter animation - counts up numbers with thousands separators
  */
 function animateCounters(selector = '.stat-value') {
     const counters = document.querySelectorAll(selector);
@@ -131,24 +131,25 @@ function animateCounters(selector = '.stat-value') {
     counters.forEach(counter => {
         const target = parseFloat(counter.dataset.target) || 0;
         const unit = counter.dataset.unit || '';
-        const decimals = counter.dataset.decimals ? parseInt(counter.dataset.decimals) : (Number.isInteger(target) ? 0 : 1);
 
         ScrollTrigger.create({
             trigger: counter,
             onEnter: () => {
                 if (!counter.classList.contains('animated')) {
-                    const countUp = new CountUp(counter, 0, target, {
-                        duration: 2,
-                        separator: ',',
-                        decimalPlaces: decimals
+                    // Fallback counter using GSAP
+                    gsap.to({ value: 0 }, {
+                        value: target,
+                        duration: 2.5,
+                        ease: 'power2.out',
+                        onUpdate: function () {
+                            const num = Math.round(this.targets()[0].value);
+                            // Format with thousands separator
+                            counter.textContent = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        },
+                        onComplete: () => {
+                            counter.classList.add('animated');
+                        }
                     });
-
-                    if (countUp.error) {
-                        console.error('CountUp error:', countUp.error);
-                    } else {
-                        countUp.start();
-                        counter.classList.add('animated');
-                    }
                 }
             },
             once: true
@@ -199,56 +200,11 @@ function updateCartCount() {
 }
 
 /**
- * Dummy data generator for development
+ * Global data (products and quiz questions loaded from JSON files)
+ * See: assets/data/ for actual data
  */
 window.dummyData = {
-    products: [
-        { id: 1, name: 'WaterSense Low-Flow Showerhead', icon: '🚿', price: 29, waterSaved: 45000, category: 'home', description: '2.0 GPM WaterSense certified. Saves ~12,000 gallons/year for a family of four (≈45,000 L).' },
-        { id: 2, name: 'Faucet Aerator Pack', icon: '🚰', price: 15, waterSaved: 26000, category: 'home', description: '1.5 GPM aerators cut sink use by ~30%. Typical household saves ≈26,000 L/year.' },
-        { id: 3, name: 'Dual-Flush Conversion Kit', icon: '🚽', price: 39, waterSaved: 54000, category: 'home', description: 'Converts existing tank to dual-flush. Average savings ≈54,000 L/year per household.' },
-        { id: 4, name: 'Smart Leak Detector', icon: '🔧', price: 69, waterSaved: 11000, category: 'home', description: 'Wi‑Fi leak + freeze alerts. Avoids small leaks that waste ~3,000 gallons/year (≈11,000 L).' },
-        { id: 5, name: 'Drip Irrigation Starter Kit', icon: '🌱', price: 65, waterSaved: 150000, category: 'garden', description: 'Delivers water at roots; reduces outdoor use by up to 50%. ≈150,000 L/year for 200 m² garden.' },
-        { id: 6, name: 'Soil Moisture Sensor Controller', icon: '📡', price: 89, waterSaved: 50000, category: 'garden', description: 'Skips irrigation when soil is wet. Typical savings ≈50,000 L/season for lawns.' },
-        { id: 7, name: 'Rain Barrel Kit (200L)', icon: '🌧️', price: 120, waterSaved: 20000, category: 'garden', description: 'Harvest rainwater for gardens. 200 L barrel can offset ≈20,000 L/year in many climates.' },
-        { id: 8, name: 'Greywater Laundry Diverter', icon: '♻️', price: 210, waterSaved: 90000, category: 'industrial', description: 'Routes washing machine water to irrigation where permitted. Saves ≈90,000 L/year.' }
-    ],
-
-    quizQuestions: [
-        {
-            question: 'What percentage of the world\'s freshwater is used for agriculture?',
-            options: ['40%', '70%', '20%', '10%'],
-            correct: 1
-        },
-        {
-            question: 'How much water does a leaking faucet waste per year?',
-            options: ['500 gallons', '3,000 gallons', '10,000 gallons', '50,000 gallons'],
-            correct: 1
-        },
-        {
-            question: 'Which country uses the most water per capita?',
-            options: ['USA', 'China', 'India', 'Brazil'],
-            correct: 0
-        },
-        {
-            question: 'What is the recommended shower duration to save water?',
-            options: ['10 minutes', '5 minutes', '2 minutes', '15 minutes'],
-            correct: 1
-        },
-        {
-            question: 'What percentage of water is lost in distribution pipelines?',
-            options: ['10%', '25%', '40%', '60%'],
-            correct: 2
-        }
-    ],
-
-    nileRegions: [
-        { name: 'Cairo', waterScarcity: 75, population: 21 },
-        { name: 'Giza', waterScarcity: 80, population: 4.3 },
-        { name: 'Alexandria', waterScarcity: 60, population: 5.1 },
-        { name: 'Aswan', waterScarcity: 90, population: 0.3 },
-        { name: 'Luxor', waterScarcity: 85, population: 0.5 },
-        { name: 'Assiut', waterScarcity: 75, population: 4.1 }
-    ]
+    // Data moved to separate JSON files for better performance and maintainability
 };
 
 /**
@@ -262,8 +218,49 @@ function initializeApp() {
     initializeSmoothScroll();
     initializeLocalStorage();
     updateCartCount();
+    animateCounters(); // Animate stat counters on scroll
+    initializeFooterNewsletter(); // Newsletter form handler
 
     console.log('✅ NileGuard Application Ready!');
+}
+
+/**
+ * Handle footer newsletter signup form
+ */
+function initializeFooterNewsletter() {
+    const form = document.getElementById('footerNewsletterForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const emailInput = form.querySelector('.footer-input');
+        const email = emailInput.value.trim();
+
+        // Basic email validation
+        if (!email || !email.includes('@')) {
+            alert('Please enter a valid email address');
+            return;
+        }
+
+        // Simulate form submission (in real app, send to backend)
+        const submitBtn = form.querySelector('.footer-btn-submit');
+        const originalContent = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '✓ Subscribed!';
+        submitBtn.style.background = 'var(--success-green)';
+
+        // Reset after 3 seconds
+        setTimeout(() => {
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalContent;
+            submitBtn.style.background = '';
+        }, 3000);
+
+        console.log('Newsletter signup:', email);
+    });
 }
 
 /**
@@ -296,20 +293,6 @@ function throttle(func, limit) {
  */
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-/**
- * Get random color from theme
- */
-function getRandomThemeColor() {
-    const colors = [
-        'var(--primary-blue)',
-        'var(--primary-aqua)',
-        'var(--success-green)',
-        'var(--warning-yellow)',
-        'var(--danger-red)'
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
 }
 
 // Initialize app when DOM is ready

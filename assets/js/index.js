@@ -233,6 +233,68 @@ function initializeScrollProgress() {
 }
 
 /**
+ * Initialize partners marquee animation - TV Ticker Style
+ * Continuous infinite scrolling like news ticker
+ */
+function initializePartnersMarquee() {
+    const marqueeWrapper = document.querySelector('.marquee-wrapper');
+    const marqueeContent = document.getElementById('marqueeContent');
+
+    if (!marqueeContent || !marqueeWrapper) {
+        console.warn('⚠️ Marquee elements not found');
+        return;
+    }
+
+    // Mark the element to prevent double initialization
+    if (marqueeContent.dataset.marqueeInitialized) {
+        console.log('✅ Marquee already initialized');
+        return;
+    }
+
+    marqueeContent.dataset.marqueeInitialized = 'true';
+
+    // Get original cards count before cloning
+    const originalCards = Array.from(marqueeContent.querySelectorAll('.partner-card'));
+
+    if (originalCards.length === 0) {
+        console.warn('⚠️ No partner cards found');
+        return;
+    }
+
+    // Clone cards for seamless infinite loop
+    originalCards.forEach(card => {
+        marqueeContent.appendChild(card.cloneNode(true));
+    });
+
+    // Use setTimeout to ensure DOM layout is calculated before animation
+    setTimeout(() => {
+        const totalWidth = marqueeContent.scrollWidth;
+        const halfWidth = totalWidth / 2;
+
+        if (halfWidth === 0) {
+            console.warn('⚠️ Marquee content width is 0');
+            return;
+        }
+
+        // Kill any existing animations
+        gsap.killTweensOf(marqueeContent);
+
+        // TV ticker style animation - continuous, smooth scrolling
+        gsap.to(marqueeContent, {
+            x: -halfWidth,
+            duration: 60,
+            ease: 'none',
+            repeat: -1,
+            modifiers: {
+                x: gsap.utils.unitize(x => (parseFloat(x) % halfWidth))
+            }
+        });
+
+        console.log('✅ Partners Marquee Running! Width:', halfWidth);
+    }, 100);
+}
+
+/**
  * Initialize all home page animations
  */
 function initializeHomePageAnimations() {
@@ -248,6 +310,7 @@ function initializeHomePageAnimations() {
     initializeSVGAnimations();
     initializeMouseFollowEffect();
     initializeScrollProgress();
+    initializePartnersMarquee();
 
     console.log('✅ Home Page Animations Initialized!');
 }
