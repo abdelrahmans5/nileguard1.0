@@ -1,10 +1,10 @@
-# NileGuard - Water is Life 💧
+# Blue Future - Water is Life 💧
 
 ## Overview
 
-**NileGuard** is a comprehensive interactive educational web application and community platform designed for students, educators, and water advocates. The platform combines **real-time water data**, **interactive education**, **community engagement**, **school programs**, and **e-commerce** to promote water conservation awareness and environmental action.
+**Blue Future** is a comprehensive interactive educational web application and community platform designed for students, educators, and water advocates. The platform combines **real-time water data**, **interactive education**, **community engagement**, **school programs**, and **e-commerce** to promote water conservation awareness and environmental action.
 
-### 🌟 What Makes NileGuard Special
+### 🌟 What Makes Blue Future Special
 
 ✅ **Real World Data** - Live World Bank API integration showing Egypt's actual water statistics  
 ✅ **Interactive Learning** - Quiz-based education with PDF certificate generation  
@@ -60,7 +60,7 @@
 - Hands-On Workshops (interactive experiments)
 - School Challenges (team competitions)
 - **School program request form**
-- Partner with NileGuard for your students
+- Partner with Blue Future for your students
 
 ### 🛒 Shop Page (`store.html`)
 
@@ -90,7 +90,7 @@
 ## 📂 Project Structure
 
 ```
-nileguard/
+bluefuture/
 ├── index.html                 # 🏠 Home page with navigation & CTAs
 ├── learn.html                 # 📚 Learning hub with quiz & certificates
 ├── data.html                  # 📊 World Bank API data visualization
@@ -98,7 +98,7 @@ nileguard/
 ├── events.html                # 🎉 Events and impact tracking
 ├── schools.html               # 🏫 School programs & request form
 ├── awareness.html             # 💡 Water awareness content
-├── about.html                 # ℹ️ About NileGuard
+├── about.html                 # ℹ️ About Blue Future
 ├── solution.html              # 💭 Solutions and ideas
 ├── risk.html                  # ⚠️ Risk simulator
 ├── store.html                 # 🛒 E-commerce shop
@@ -196,7 +196,7 @@ nileguard/
 
 ### World Bank Data API
 
-NileGuard fetches **real-time water data** from the World Bank API for Egypt:
+Blue Future fetches **real-time water data** from the World Bank API for Egypt:
 
 **Integrated Indicators:**
 - `ER.H2O.FWTL.ZS` - Total renewable freshwater resources (% of total water resources)
@@ -290,7 +290,7 @@ No build process needed! This is a vanilla HTML/CSS/JS project.
 
 ```bash
 # Clone or download the project
-cd nileguard
+cd bluefuture
 
 # Open in your browser
 open index.html  # macOS
@@ -521,7 +521,7 @@ For bug reports, feature requests, or contributions, please create an issue or p
 ## Citation
 
 If you use this project in educational contexts, please cite:
-> NileGuard - Interactive Water Scarcity Awareness Platform (2025)
+> Blue Future - Interactive Water Scarcity Awareness Platform (2025)
 
 ---
 

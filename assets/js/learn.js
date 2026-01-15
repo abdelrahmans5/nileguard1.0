@@ -239,7 +239,7 @@ function initializeQuiz() {
                 <h1 style="color: #1E90FF; margin-bottom: 20px;">🏆 Certificate of Achievement</h1>
                 <p style="font-size: 18px; margin: 20px 0;">This is to certify that</p>
                 <h2 style="color: #00BFFF; margin: 20px 0;">Water Guardian</h2>
-                <p style="font-size: 16px; margin: 20px 0;">Has successfully completed the NileGuard Water Knowledge Quiz</p>
+                <p style="font-size: 16px; margin: 20px 0;">Has successfully completed the Blue Future Water Knowledge Quiz</p>
                 <p style="font-size: 14px; margin: 20px 0;">Score: ${score} out of ${quizData.length}</p>
                 <p style="font-size: 12px; color: #666; margin-top: 40px;">${new Date().toLocaleDateString()}</p>
                 <p style="margin-top: 30px;">🌊 Keep protecting our water! 🌊</p>

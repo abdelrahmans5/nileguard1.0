@@ -173,8 +173,8 @@ function setHeroBackground(imageUrl) {
  */
 function initializeLocalStorage() {
     // Check if cart exists in localStorage
-    if (!localStorage.getItem('nileguard_cart')) {
-        localStorage.setItem('nileguard_cart', JSON.stringify([]));
+    if (!localStorage.getItem('bluefuture_cart')) {
+        localStorage.setItem('bluefuture_cart', JSON.stringify([]));
     }
 }
 
@@ -182,7 +182,7 @@ function initializeLocalStorage() {
  * Update cart count in navbar
  */
 function updateCartCount() {
-    const cartData = JSON.parse(localStorage.getItem('nileguard_cart') || '[]');
+    const cartData = JSON.parse(localStorage.getItem('bluefuture_cart') || '[]');
     const cartCount = cartData.reduce((total, item) => total + (item.quantity || 1), 0);
 
     const cartCountElement = document.getElementById('cartCount');
@@ -211,7 +211,7 @@ window.dummyData = {
  * Initialize all common functionality
  */
 function initializeApp() {
-    console.log('🌊 Initializing NileGuard Application...');
+    console.log('🌊 Initializing Blue Future Application...');
 
     initializeParticles();
     initializeNavbarScroll();
@@ -221,7 +221,7 @@ function initializeApp() {
     animateCounters(); // Animate stat counters on scroll
     initializeFooterNewsletter(); // Newsletter form handler
 
-    console.log('✅ NileGuard Application Ready!');
+    console.log('✅ Blue Future Application Ready!');
 }
 
 /**

@@ -171,7 +171,7 @@ function addToCart(product, buttonEl) {
     }
 
     // Save to localStorage
-    localStorage.setItem('nileguard_cart', JSON.stringify(cart));
+    localStorage.setItem('bluefuture_cart', JSON.stringify(cart));
     updateCartCount();
     updateCartDisplay();
 
@@ -195,7 +195,7 @@ function addToCart(product, buttonEl) {
  */
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
-    localStorage.setItem('nileguard_cart', JSON.stringify(cart));
+    localStorage.setItem('bluefuture_cart', JSON.stringify(cart));
     updateCartCount();
     updateCartDisplay();
     showNotification('Item removed from cart');
@@ -208,7 +208,7 @@ function updateCartQuantity(productId, quantity) {
     const item = cart.find(item => item.id === productId);
     if (item) {
         item.quantity = Math.max(1, quantity);
-        localStorage.setItem('nileguard_cart', JSON.stringify(cart));
+        localStorage.setItem('bluefuture_cart', JSON.stringify(cart));
         updateCartCount();
         updateCartDisplay();
     }
@@ -306,7 +306,7 @@ function toggleCartSidebar(show) {
  */
 function initializeCart() {
     // Load cart from localStorage
-    const savedCart = localStorage.getItem('nileguard_cart');
+    const savedCart = localStorage.getItem('bluefuture_cart');
     if (savedCart) {
         try {
             cart = JSON.parse(savedCart);
@@ -435,7 +435,7 @@ function initializeCheckout() {
             setTimeout(() => {
                 showNotification('✅ Order placed successfully! Thank you for helping protect our water! 💧');
                 cart = [];
-                localStorage.setItem('nileguard_cart', JSON.stringify(cart));
+                localStorage.setItem('bluefuture_cart', JSON.stringify(cart));
                 updateCartCount();
                 updateCartDisplay();
                 toggleCartSidebar(false);

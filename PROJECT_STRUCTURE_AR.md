@@ -1,11 +1,11 @@
 # دليل بنية المشروع ونظام الألوان الموحد
 
-# NileGuard Project Structure & Unified Color System
+# Blue Future Project Structure & Unified Color System
 
 ## 📁 بنية المشروع (Project Structure)
 
 ```
-nileguard/
+bluefuture/
 ├── assets/
 │   ├── css/
 │   │   ├── common.css          ← النمط الأساسي المشترك (تحديث 2026)
@@ -39,7 +39,7 @@ nileguard/
 ├── community.html              ← صفحة المجتمع
 ├── schools.html                ← صفحة المدارس
 ├── store.html                  ← صفحة المتجر
-├── about.html                  ← عن NileGuard
+├── about.html                  ← عن Blue Future
 ├── solution.html               ← الحلول
 ├── events.html                 ← الأحداث
 └── README.md
@@ -288,5 +288,5 @@ color: var(--color-text-light);
 
 **تم التحديث:** 14 يناير 2026  
 **الإصدار:** 2.0  
-**المطور:** NileGuard Team  
+**المطور:** Blue Future Team  
 **الحالة:** ✅ جاهز للإنتاج

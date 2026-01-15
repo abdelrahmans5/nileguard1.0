@@ -1,5 +1,5 @@
 /**
- * Animation Module - Essential animations for NileGuard
+ * Animation Module - Essential animations for Blue Future
  * ====================================================
  * Kept only the most commonly used animations to reduce bundle size
  */
