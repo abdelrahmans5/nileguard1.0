@@ -3,12 +3,50 @@
  * ======================
  */
 
+let vantaEffect = null;
+
+/**
+ * Initialize Vanta.js Waves effect on hero
+ */
+function initializeHeroVanta() {
+    const hero = document.getElementById('hero');
+
+    // Ensure dependencies exist
+    if (!hero || !window.VANTA || !window.THREE) {
+        return;
+    }
+
+    // Clean up previous instance if any
+    if (vantaEffect && vantaEffect.destroy) {
+        vantaEffect.destroy();
+    }
+
+    vantaEffect = window.VANTA.WAVES({
+        el: hero,
+        color: 0x0066cc,
+        shininess: 30,
+        waveHeight: 20,
+        waveSpeed: 0.8,
+        zoom: 1.1,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        backgroundColor: 0x0a0e27
+    });
+}
+
 /**
  * Initialize hero section animations
  */
 function initializeHeroAnimations() {
-    // Set hero background image (user can replace with their own image)
-    setHeroBackground('https://images.unsplash.com/photo-1716639154156-db53b75a22ad?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    // Try Vanta waves effect; if not available fallback to static image
+    if (window.VANTA && window.THREE) {
+        initializeHeroVanta();
+    } else {
+        setHeroBackground('https://images.unsplash.com/photo-1716639154156-db53b75a22ad?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    }
 
     // Hero title animation intentionally removed for an immediate static load
 }

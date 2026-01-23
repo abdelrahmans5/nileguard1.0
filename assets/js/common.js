@@ -229,7 +229,10 @@ function initializeApp() {
  */
 function initializeFooterNewsletter() {
     const form = document.getElementById('footerNewsletterForm');
-    if (!form) return;
+    if (!form) {
+        console.log('ℹ️ Newsletter form not found on this page - skipping initialization');
+        return;
+    }
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
