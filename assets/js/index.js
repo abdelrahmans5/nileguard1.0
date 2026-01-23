@@ -23,17 +23,17 @@ function initializeHeroVanta() {
 
     vantaEffect = window.VANTA.WAVES({
         el: hero,
-        color: 0x0066cc,
-        shininess: 30,
-        waveHeight: 20,
-        waveSpeed: 0.8,
-        zoom: 1.1,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        backgroundColor: 0x0a0e27
+        color: 0x0066cc,            // لون الأمواج (أزرق) - بصيغة hex
+        shininess: 30,              // درجة اللمعان (0-100)
+        waveHeight: 20,             // ارتفاع الأمواج (كلما زاد = أمواج أعلى)
+        waveSpeed: 0.8,             // سرعة حركة الأمواج (0.5-2.0)
+        zoom: 1.1,                  // تكبير/تصغير الكاميرا
+        mouseControls: true,        // التحكم بالماوس (يتحرك مع مؤشر الفأرة)
+        touchControls: true,        // التحكم باللمس (للموبايل)
+        gyroControls: false,        // التحكم بالـ Gyroscope (حركة الموبايل)
+        minHeight: 200.0,           // الحد الأدنى لارتفاع العنصر
+        minWidth: 200.0,            // الحد الأدنى لعرض العنصر
+        backgroundColor: 0x0a0e27   // لون الخلفية (أزرق غامق)
     });
 }
 
